@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_item_pt"
+            android:icon="@drawable/ic_clinic_pt"
+            android:title="@string/app_clinic_pt_title" />
+        <item
+            android:id="@+id/nav_item_dx"
+            android:icon="@drawable/ic_clinic_dx"
+            android:title="@string/app_clinic_dx_title" />
+        <item
+            android:id="@+id/nav_item_tx"
+            android:icon="@drawable/ic_clinic_tx"
+            android:title="@string/app_clinic_tx_title" />
+        <item
+            android:id="@+id/nav_item_gd"
+            android:icon="@drawable/ic_clinic_gd"
+            android:title="@string/app_clinic_gd_title" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_settings"
+                android:title="@string/app_settings_title" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_help"
+                android:title="@string/app_help_title" />
+        </menu>
+    </item>
+
+</menu>

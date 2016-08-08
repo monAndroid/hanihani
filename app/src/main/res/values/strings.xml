@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">HaniHani</string>
+    <string name="app_title">한의원 경영앱</string>
+    <string name="app_desc">한의원 진료/운영 안드로이드 앱</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_search">Search</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_clinic_name">clinic</string>
+    <string name="app_clinic_title">한의원 진료앱</string>
+    <string name="app_clinic_desc">접수-진단-처방-티칭을 일괄적으로 관리</string>
+    <string name="app_clinic_pt_name">clinicPt</string>
+    <string name="app_clinic_pt_title">환자 목록</string>
+    <string name="app_clinic_pt_desc">ClinicPt_desc</string>
+    <string name="app_clinic_dx_name">ClinicDx_name</string>
+    <string name="app_clinic_dx_title">진단 관리</string>
+    <string name="app_clinic_dx_desc">ClinicDx_desc</string>
+    <string name="app_clinic_tx_name">ClinicTx_name</string>
+    <string name="app_clinic_tx_title">치료 관리</string>
+    <string name="app_clinic_tx_desc">ClinicTx_desc</string>
+    <string name="app_clinic_gd_name">ClinicGd_name</string>
+    <string name="app_clinic_gd_title">생활 지도</string>
+    <string name="app_clinic_gd_desc">ClinicGd_desc</string>
+    <string name="app_mn_name">mn</string>
+    <string name="app_mn_title">한의원 운영앱</string>
+    <string name="app_mn_desc">회계-재고-교육</string>
+    <string name="app_settings_title">Settings</string>
+    <string name="app_help_title">Help</string>
+</resources>
