@@ -10,10 +10,20 @@ import android.widget.TextView;
 import com.moonhani.hanihani.R;
 import com.moonhani.hanihani.model.Pt;
 import com.ramotion.foldingcell.FoldingCell;
-//import com.ramotion.foldingcell.examples.R;
+
+import org.json.JSONObject;
 
 import java.util.HashSet;
 import java.util.List;
+
+import utils.Basic;
+import utils.Util;
+//import com.monandroid.hanihani.AppController;
+
+import static utils.Util.VMGetJsonArr;
+import static utils.Util.VMGetJsonObj;
+import static utils.Util.VMNetImageReq;
+import static utils.Util.VMPostJsonArr;
 
 /**
  * Simple example of ListAdapter for using with Folding Cell
@@ -23,7 +33,6 @@ public class PtListFoldingAdapter extends ArrayAdapter<Pt> {
 
     private HashSet<Integer> unfoldedIndexes = new HashSet<>();
     //private View.OnClickListener defaultRequestBtnClickListener;
-
 
     public PtListFoldingAdapter(Context context, List<Pt> objects) {
         super(context, 0, objects);
@@ -119,4 +128,5 @@ public class PtListFoldingAdapter extends ArrayAdapter<Pt> {
         TextView age;
         TextView sex;
     }
+
 }
