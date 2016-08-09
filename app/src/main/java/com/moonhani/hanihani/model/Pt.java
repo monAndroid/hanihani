@@ -2,6 +2,8 @@ package com.moonhani.hanihani.model;
 
 import android.view.View;
 
+import com.moonhani.hanihani.R;
+
 import java.util.ArrayList;
 
 /**
@@ -16,13 +18,14 @@ public class Pt {
     private int visitCount;
     private String age;
     private String sex;
+    private String photo;
 
     //private View.OnClickListener requestBtnClickListener;
 
     public Pt() {
     }
 
-    public Pt(String name, String birth, String firstDate, String lastDate, int visitCount, String age, String sex) {
+    public Pt(String name, String birth, String firstDate, String lastDate, int visitCount, String age, String sex, String photo) {
         this.name = name;
         this.birth = birth;
         this.firstDate = firstDate;
@@ -30,6 +33,7 @@ public class Pt {
         this.visitCount = visitCount;
         this.age = age;
         this.sex = sex;
+        this.photo = photo;
     }
 
     public String getName() {
@@ -87,6 +91,14 @@ public class Pt {
     public void setSex(String sex) {
         this.sex = sex;
     }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String sex) {
+        this.photo = photo;
+    }
 /*
     public View.OnClickListener getRequestBtnClickListener() {
         return requestBtnClickListener;
@@ -130,16 +142,16 @@ public class Pt {
 */
     /**
      * @return List of elements prepared for tests
-     */
+
     public static ArrayList<Pt> getTestingList() {
         ArrayList<Pt> pts = new ArrayList<>();
-        pts.add(new Pt("문정삼", "1968-12-25", "2016-08-09", "2016-09-09", 11, "47", "남"));
-        pts.add(new Pt("$23", "$116", "W 36th St, NY, 10015", "W 114th St, NY, 10037", 10, "TODAY", "11:10 AM"));
-        pts.add(new Pt("$63", "$350", "W 36th St, NY, 10029", "56th Ave, NY, 10041", 0, "TODAY", "07:11 PM"));
-        pts.add(new Pt("$19", "$150", "12th Ave, NY, 10012", "W 57th St, NY, 10048", 8, "TODAY", "4:15 AM"));
-        pts.add(new Pt("$5", "$300", "56th Ave, NY, 10041", "W 36th St, NY, 10029", 0, "TODAY", "06:15 PM"));
+        pts.add(new Pt("문정삼", "1968-12-25", "2016-08-09", "2016-09-09", 11, "47", "남", R.drawable.pt1));
+        pts.add(new Pt("$23", "$116", "W 36th St, NY, 10015", "W 114th St, NY, 10037", 10, R.drawable.pt2));
+        pts.add(new Pt("$63", "$350", "W 36th St, NY, 10029", "56th Ave, NY, 10041", 0, R.drawable.pt3));
+        pts.add(new Pt("$19", "$150", "12th Ave, NY, 10012", "W 57th St, NY, 10048", 8, R.drawable.pt4));
+        pts.add(new Pt("$5", "$300", "56th Ave, NY, 10041", "W 36th St, NY, 10029", 0, R.drawable.pt5));
         return pts;
 
     }
-
+     */
 }

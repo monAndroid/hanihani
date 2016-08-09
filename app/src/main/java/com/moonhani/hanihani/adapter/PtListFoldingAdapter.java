@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.moonhani.hanihani.R;
 import com.moonhani.hanihani.model.Pt;
 import com.ramotion.foldingcell.FoldingCell;
@@ -50,14 +52,15 @@ public class PtListFoldingAdapter extends ArrayAdapter<Pt> {
             LayoutInflater vi = LayoutInflater.from(getContext());
             cell = (FoldingCell) vi.inflate(R.layout.pt_cell, parent, false);
             // binding view parts to view holder
+            viewHolder.photo = (ImageView) cell.findViewById(R.id.pt_photo);
             viewHolder.name = (TextView) cell.findViewById(R.id.title_name);
             viewHolder.name2 = (TextView) cell.findViewById(R.id.title_name2);
-            viewHolder.sex = (TextView) cell.findViewById(R.id.title_sex_label);
-            viewHolder.age = (TextView) cell.findViewById(R.id.title_age_label);
-            viewHolder.FirstDate = (TextView) cell.findViewById(R.id.title_from_address);
-            viewHolder.lastDate = (TextView) cell.findViewById(R.id.title_to_address);
-            viewHolder.visitCount = (TextView) cell.findViewById(R.id.title_requests_count);
-            viewHolder.birth = (TextView) cell.findViewById(R.id.title_pledge);
+            //viewHolder.sex = (TextView) cell.findViewById(R.id.title_sex);
+            //viewHolder.age = (TextView) cell.findViewById(R.id.title_age);
+            viewHolder.FirstDate = (TextView) cell.findViewById(R.id.title_firstDate);
+            viewHolder.lastDate = (TextView) cell.findViewById(R.id.title_lastDate);
+            viewHolder.visitCount = (TextView) cell.findViewById(R.id.title_visitCount);
+            viewHolder.birth = (TextView) cell.findViewById(R.id.title_birth);
             viewHolder.contentRequestBtn = (TextView) cell.findViewById(R.id.content_request_btn);
             cell.setTag(viewHolder);
         } else {
@@ -71,10 +74,12 @@ public class PtListFoldingAdapter extends ArrayAdapter<Pt> {
         }
 
         // bind data from selected element to view through view holder
-        viewHolder.name.setText(pt.getName());
+        Glide.with(getContext()).load(pt.getPhoto()).into(viewHolder.photo);
+        //Glide.with(getContext()).load("http://112.133.112.77:7070/photo/pt1.png").into(viewHolder.photo);
+        viewHolder.name.setText(pt.getName() + "(" + pt.getAge() + "/" + pt.getSex() + ")");
         viewHolder.name2.setText(pt.getName() + "(" + pt.getAge() + "/" + pt.getSex() + ")");
-        viewHolder.sex.setText(pt.getSex());
-        viewHolder.age.setText(pt.getAge());
+        //viewHolder.sex.setText(pt.getSex());
+        //viewHolder.age.setText(pt.getAge());
         viewHolder.FirstDate.setText(pt.getFirstDate());
         viewHolder.lastDate.setText(pt.getLastDate());
         viewHolder.visitCount.setText(String.valueOf(pt.getVisitCount()));
@@ -118,6 +123,7 @@ public class PtListFoldingAdapter extends ArrayAdapter<Pt> {
     */
     // View lookup cache
     private static class ViewHolder {
+        ImageView photo;
         TextView name;
         TextView name2;
         TextView contentRequestBtn;
@@ -125,8 +131,8 @@ public class PtListFoldingAdapter extends ArrayAdapter<Pt> {
         TextView FirstDate;
         TextView lastDate;
         TextView visitCount;
-        TextView age;
-        TextView sex;
+        //TextView age;
+        //TextView sex;
     }
 
 }
