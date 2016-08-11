@@ -1,5 +1,6 @@
 package com.moonhani.hanihani.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -31,13 +33,11 @@ import utils.Util;
 
 public class PtFragment01 extends Fragment {
 
-    private String url_ptList = "http://112.133.112.77:4545/postPtArray";
+    private String url_ptList = "http://112.133.112.77:3333/patientsByState";
     ListView theListView;
-    //TextView resultTxt;
     View view;
     JSONObject params;
     Gson gson;
-    //ArrayList<Pt> pts;
 
     @Nullable
     @Override
@@ -47,14 +47,12 @@ public class PtFragment01 extends Fragment {
         //resultTxt = (TextView) view.findViewById(R.id.resultTxt);
 
         // get our list view
-        theListView = (ListView) view.findViewById(R.id.listView_pt);
-
-
+        theListView = (ListView) view.findViewById(R.id.listView_pt_01);
 
 
        gson = new Gson();
 
-        String data = "{\"date\":\"2016-08-09\", \"state\":\"waiting\"}";
+        String data = "{\"date\":\"20160811\", \"type\":\"state1\"}";
 
         try {
             params = new JSONObject(data);
@@ -65,16 +63,24 @@ public class PtFragment01 extends Fragment {
         //pts = Pt.getTestingList();
 
         Util.VMPostJsonArr(url_ptList, params, getContext(), new Util.VMCallback_JSONArr() {
+        //Util.VMGetJsonArr(url_ptList, getContext(), new  Util.VMCallback_JSONArr()  {
             @Override
             public void onSuccess(JSONArray response) {
-                //resultTxt.setText("VMPostJsonArr Success\n" +  "\n" + gson.fromJson(response.toString(), new TypeToken<List<Pt>>() { }.getType()).toString());
-                //Basic.showToast(getContext(), gson.fromJson(response.toString(), Pt.class).toString());
-                //Basic.showToast(getContext(), gson.fromJson(response.toString(), new TypeToken<List<Pt>>() { }.getType()).toString());
-                //Basic.showToast(getContext(), pts.toString());
 
+                try {
+                    //Log.i("TEST", "pic " + response.getJSONObject(0).getJSONArray("PIC").getString("CAP_PATH"));
+                    Log.i("TEST", "pic " + response.getJSONObject(1).getJSONArray("PIC").toString());
+                } catch (Exception e) {
+
+                }
                 //ArrayList<Pt> pts = gson.fromJson(response.toString(), new TypeToken<List<Pt>>() { }.getType());
                 ArrayList<Pt> pts = gson.fromJson(response.toString(), new TypeToken<List<Pt>>() { }.getType());
-                Log.i("PTS", pts.toString());
+                //ArrayList<Pt> pts = Arrays.asList(gson.fromJson(response.toString(), Pt[].class));
+                //Log.i("TEST2", "pic2 " + pts.toString());
+                //Basic.showToast(getContext(), "pts: " + response.toString());
+
+                //Log.i("TEST", "pic " + pts.);
+                //Basic.showToast(getContext(), "pts: " + pts.toString());
 
                 // create custom adapter that holds elements and their state (we need hold a id's of unfolded elements for reusable elements)
                 final PtListFoldingAdapter adapter = new PtListFoldingAdapter(getContext(), pts);
